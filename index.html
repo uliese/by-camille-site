@@ -1,0 +1,177 @@
+import hero from './assets/01-ggr5017.webp';
+import beauty from './assets/02-dsc00450-touched.webp';
+import ocean from './assets/03-dsf3162.webp';
+import golden from './assets/04-ggr4676.webp';
+import water from './assets/05-20160724-071139.webp';
+import interior from './assets/06-dsc05848.webp';
+import texture from './assets/07-dsc01849.webp';
+import about from './assets/08-dsc01872.webp';
+import archiveOne from './assets/09-20160724-065545.webp';
+import archiveTwo from './assets/10-20160724-065805-0.webp';
+import archiveThree from './assets/11-dsc05856.webp';
+import archiveFour from './assets/12-dsf3151.webp';
+import archiveFive from './assets/13-dsf3229.webp';
+import archiveSix from './assets/14-20170212-075918-002.webp';
+import archiveSeven from './assets/15-ggr5110.webp';
+
+const portfolio = [
+  { title: 'Editorial Beauty', category: 'Fashion Portrait', image: beauty },
+  { title: 'Oceanic Femininity', category: 'Cinematic Beach', image: ocean },
+  { title: 'Golden Hour Muse', category: 'Editorial Fashion', image: golden },
+  { title: 'Stillness & Water', category: 'Fine Art', image: water },
+  { title: 'Moody Interior', category: 'Conceptual', image: interior },
+  { title: 'Color & Texture', category: 'Visual Storytelling', image: texture },
+];
+
+const archive = [archiveOne, archiveTwo, archiveThree, archiveFour, archiveFive, archiveSix, archiveSeven];
+
+function App() {
+  return (
+    <div className="site-shell">
+      <header className="site-header">
+        <nav className="nav">
+          <a href="#top" className="logo">BY CAMILLE</a>
+          <div className="nav-links">
+            <a href="#portfolio">Portfolio</a>
+            <a href="#about">About</a>
+            <a href="#services">Creative Direction</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <a href="#contact" className="nav-cta">Inquire</a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section className="hero">
+          <img src={hero} alt="Editorial portrait by Camille" className="hero-image" />
+          <div className="hero-overlay" />
+          <div className="hero-content">
+            <p className="eyebrow">Visual Storytelling • Editorial Photography</p>
+            <h1>Cinematic imagery rooted in mood, femininity, texture, and light.</h1>
+            <div className="button-row">
+              <a href="#portfolio" className="button button-light">Enter Portfolio</a>
+              <a href="#about" className="button button-outline">Artist Statement</a>
+            </div>
+          </div>
+        </section>
+
+        <section className="marquee-strip">
+          <span>Editorial Portraiture</span>
+          <span>•</span>
+          <span>Fashion Mood</span>
+          <span>•</span>
+          <span>Cinematic Light</span>
+          <span>•</span>
+          <span>Visual Direction</span>
+        </section>
+
+        <section id="portfolio" className="section portfolio-section">
+          <div className="section-heading split">
+            <div>
+              <p className="eyebrow muted">Selected Series</p>
+              <h2>Portfolio</h2>
+            </div>
+            <p className="section-copy">A collection of editorial portraiture, cinematic beach imagery, intimate fashion moments, and visual storytelling.</p>
+          </div>
+
+          <div className="portfolio-grid">
+            {portfolio.map((item, index) => (
+              <article className={`portfolio-card ${index === 1 || index === 3 ? 'tall' : ''}`} key={item.title}>
+                <div className="portfolio-image-wrap">
+                  <img src={item.image} alt={item.title} />
+                </div>
+                <div className="portfolio-caption">
+                  <div>
+                    <p>{item.category}</p>
+                    <h3>{item.title}</h3>
+                  </div>
+                  <span>→</span>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="about" className="section about-section">
+          <div className="about-grid">
+            <div className="about-image-wrap">
+              <img src={about} alt="Camille portrait" />
+            </div>
+            <div className="about-copy">
+              <p className="eyebrow muted">Artist Statement</p>
+              <h2>Photography as atmosphere, emotion, and visual memory.</h2>
+              <p>
+                My work blends fashion editorial, cinematic lighting, oceanic texture, and intimate portraiture into imagery that feels immersive and emotionally charged. I’m drawn to contrast — softness against shadow, elegance against rawness, stillness against movement. Every image is designed to feel like a frame from a story unfolding in real time.
+              </p>
+              <div className="trait-grid">
+                <div><strong>Mood</strong><span>Cinematic</span></div>
+                <div><strong>Style</strong><span>Editorial</span></div>
+                <div><strong>Energy</strong><span>Intimate</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section archive-section">
+          <div className="section-heading center">
+            <p className="eyebrow">Visual Archive</p>
+            <h2>Light, movement, shadow.</h2>
+          </div>
+          <div className="archive-grid">
+            {archive.map((image, index) => (
+              <img src={image} alt={`Visual archive ${index + 1}`} key={image} />
+            ))}
+          </div>
+        </section>
+
+        <section id="services" className="section services-section">
+          <div className="services-inner">
+            <p className="eyebrow">Creative Direction</p>
+            <h2>More than portraits.</h2>
+            <p>
+              Editorial portraiture, visual campaigns, fashion-inspired sessions, conceptual storytelling, cinematic beach imagery, and personal branding rooted in emotion and atmosphere.
+            </p>
+          </div>
+        </section>
+
+        <section id="contact" className="section contact-section">
+          <div className="contact-grid">
+            <div>
+              <p className="eyebrow muted">Book Your Session</p>
+              <h2>Let’s create something unforgettable.</h2>
+              <p>
+                Send a quick message with your session type, ideal date, and location. I’ll respond with availability, creative direction, and next steps.
+              </p>
+              <div className="contact-details">
+                <p>✉ hello@bycamille.net</p>
+                <p>◎ @bycamille</p>
+                <p>⌖ South Florida + Travel</p>
+              </div>
+            </div>
+
+            <form className="contact-form" action="mailto:hello@bycamille.net" method="post" encType="text/plain">
+              <input name="name" placeholder="Your name" />
+              <input name="email" type="email" placeholder="Email address" />
+              <select name="sessionType">
+                <option>Session type</option>
+                <option>Editorial Portrait</option>
+                <option>Personal Branding</option>
+                <option>Creative Direction</option>
+                <option>Visual Campaign</option>
+              </select>
+              <textarea name="message" placeholder="Tell me what you’re dreaming of..." />
+              <button type="submit">Send Inquiry</button>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <footer className="footer">
+        <p>© 2026 BY CAMILLE. All rights reserved.</p>
+        <p>Editorial storytelling through light, mood, and movement.</p>
+      </footer>
+    </div>
+  );
+}
+
+export default App;
